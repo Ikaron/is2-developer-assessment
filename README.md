@@ -1,4 +1,10 @@
-﻿# Data Exporter
+﻿# IS2 Aptitude Test
+
+This repository contains Anna Weber's submission for the IS2 aptitude test described below.
+
+---
+
+# Data Exporter
 
 The **Data Exporter** app is a small RESTful API implemented in .NET 6. It manages insurance policies and any notes the brokers might have added to the policies. It also provides a way to query and map the data to a format an external system might require for importing.
 
@@ -15,3 +21,12 @@ The **Data Exporter** app is a small RESTful API implemented in .NET 6. It manag
 - The tasks can be completed in any order.
 - Any third party library can be used to implement some of the functionality required.
 - To test the API, any tool like cURL or Postman can be used and the scripts should be included in the submission.
+
+---
+
+# Response
+
+Suggested improvements to **GetPolicy**:
+- 
+Suggested improvements to **ReadPolicyAsync**:
+- 
