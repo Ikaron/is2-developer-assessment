@@ -8,5 +8,7 @@ namespace DataExporter.Model
         public string PolicyNumber { get; set; }
         public decimal Premium { get; set; }
         public DateTime StartDate { get; set; }
+
+        public ICollection<Note> Notes { get; set; } = new List<Note>();
     }
 }
