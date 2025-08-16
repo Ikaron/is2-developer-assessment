@@ -30,3 +30,8 @@ Suggested improvements to **GetPolicy**:
 - 
 Suggested improvements to **ReadPolicyAsync**:
 - 
+
+## Test Queries
+
+The test queries are located inside DataExporter/DataExporterTestQueries.http
+This file can be opened in Visual Studio and has a list of a few requests to try out.
