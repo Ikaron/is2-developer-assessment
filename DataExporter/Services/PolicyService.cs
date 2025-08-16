@@ -46,10 +46,11 @@ namespace DataExporter.Services
         /// Retrieves a policy by id.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Returns a ReadPolicyDto.</returns>
+        /// <returns>Returns a ReadPolicyDto if a policy with this id exists. Returns null, otherwise.</returns>
         public async Task<ReadPolicyDto?> ReadPolicyAsync(int id)
         {
-            var policy = await _dbContext.Policies.SingleAsync(x => x.Id == id);
+            // SingleAsync errors if not found, so we can use FirstOrDefaultAsync but because we query on primary key, FindAsync is better
+            var policy = await _dbContext.Policies.FindAsync(id);
             if (policy == null)
             {
                 return null;
