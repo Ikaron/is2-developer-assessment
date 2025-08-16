@@ -9,10 +9,12 @@ namespace DataExporter.Controllers
     public class PoliciesController : ControllerBase
     {
         private PolicyService _policyService;
+        private ExportService _exportService;
 
-        public PoliciesController(PolicyService policyService) 
+        public PoliciesController(PolicyService policyService, ExportService exportService) 
         { 
             _policyService = policyService;
+            _exportService = exportService;
         }
 
         [HttpPost]
@@ -45,10 +47,16 @@ namespace DataExporter.Controllers
             return Ok(policy);
         }
 
-        [HttpPost("export")]
-        public async Task<IActionResult> ExportData([FromQuery]DateTime startDate, [FromQuery] DateTime endDate)
+        [HttpGet("export")]
+        public async Task<ActionResult<IList<ExportDto>>> ExportData([FromQuery]DateTime startDate, [FromQuery]DateTime endDate)
         {
-            return Ok();
+            var data = await _exportService.ExportAsync(startDate, endDate);
+            if (data == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(data);
         }
     }
 }
