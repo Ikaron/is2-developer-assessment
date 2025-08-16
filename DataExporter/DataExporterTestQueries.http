@@ -14,6 +14,12 @@ Accept: application/json
 
 ###
 
+# Get the non-existant policy with ID 1000
+GET {{HostAddress}}/Policies/1000
+Accept: application/json
+
+###
+
 # Add a new policy (first one should be ID 6)
 POST {{HostAddress}}/Policies
 Content-Type: application/json
@@ -21,6 +27,15 @@ Content-Type: application/json
   "PolicyNumber": "HSCX1006",
   "Premium": 123.00,
   "StartDate": "2025-08-16T00:00:00"
+}
+
+###
+
+# Try to add a new invalid policy
+POST {{HostAddress}}/Policies
+Content-Type: application/json
+{
+  "PolicyNumber": "HSCX1006"
 }
 
 ###

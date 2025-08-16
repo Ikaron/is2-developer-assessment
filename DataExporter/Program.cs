@@ -1,4 +1,6 @@
 using DataExporter.Services;
+using DataExporter.Dtos.Validators;
+using FluentValidation;
 
 namespace DataExporter
 {
@@ -13,6 +15,8 @@ namespace DataExporter
             builder.Services.AddControllers();
             builder.Services.AddDbContext<ExporterDbContext>();
             builder.Services.AddScoped<PolicyService>();
+            builder.Services.AddScoped<ExportService>();
+            builder.Services.AddValidatorsFromAssemblyContaining<CreatePolicyDtoValidator>();
 
             var app = builder.Build();
 

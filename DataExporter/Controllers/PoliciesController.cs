@@ -16,11 +16,16 @@ namespace DataExporter.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostPolicies([FromBody]CreatePolicyDto createPolicyDto)
-        {         
-            return Ok();
-        }
+        public async Task<ActionResult<ReadPolicyDto>> PostPolicies([FromBody]CreatePolicyDto createPolicyDto)
+        {
+            var policy = await _policyService.CreatePolicyAsync(createPolicyDto);
+            if (policy == null)
+            {
+                return BadRequest("Failed to create policy.");
+            }
 
+            return Ok(policy);
+        }
 
         [HttpGet]
         public async Task<ActionResult<IList<ReadPolicyDto>>> GetPolicies()
