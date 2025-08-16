@@ -27,9 +27,15 @@ The **Data Exporter** app is a small RESTful API implemented in .NET 6. It manag
 # Response
 
 Suggested improvements to **GetPolicy**:
-- 
+- It could potentially make sense to also include notes for the given policy, depending on the API design and who is calling this and when.
 Suggested improvements to **ReadPolicyAsync**:
-- 
+- Documentation comment had incorrect description
+Other notes:
+- Policies are not connected to a user/person. Doesn't make sense - Assume skipped for brevity.
+- Authorisation is missing. You should most likely only be able to access policies that apply to yourself. Similarly, you should probably 
+- Currently, Policy Number is not enforced to be unique. That's definitely a problem.
+- Better error handling. The service frequently just returns null, regardless of the exact error. Is it malformed input or an internal server error? We can't know, so we can't choose between returning 400 and 500 error codes.
+- In Development: API mapping via OpenAPI / Swagger would be very useful
 
 ## Test Queries
 
