@@ -33,6 +33,7 @@ Suggested improvements to **ReadPolicyAsync**:
 - Documentation comment had incorrect description
 
 Other notes:
+- Test framework like xUnit and add Unit Tests and Integration Tests
 - Policies are not connected to a user/person. Doesn't make sense - Assume skipped for brevity.
 - Authorisation is missing. You should most likely only be able to access policies that apply to yourself. Similarly, you should probably 
 - Currently, Policy Number is not enforced to be unique. That's definitely a problem.
