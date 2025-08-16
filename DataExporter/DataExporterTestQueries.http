@@ -1,0 +1,42 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+@HostAddress = https://localhost:7246
+
+# Get all policies
+GET {{HostAddress}}/Policies
+Accept: application/json
+
+###
+
+# Get the policy with ID 1
+GET {{HostAddress}}/Policies/1
+Accept: application/json
+
+###
+
+# Add a new policy (first one should be ID 6)
+POST {{HostAddress}}/Policies
+Content-Type: application/json
+{
+  "PolicyNumber": "HSCX1006",
+  "Premium": 123.00,
+  "StartDate": "2025-08-16T00:00:00"
+}
+
+###
+
+# Get the policy with ID 6 (added via POST above)
+GET {{HostAddress}}/Policies/6
+Accept: application/json
+
+###
+
+# Request export of policies and notes within a specific date range - On/After 01.04.2024
+GET {{HostAddress}}/Policies/export?startDate=2024-04-01&endDate=2030-12-31
+Accept: application/json
+
+###
+
+# Request export of policies and notes within a specific date range - Before/On 01.04.2024
+GET {{HostAddress}}/Policies/export?startDate=2001-01-01&endDate=2024-04-01
+Accept: application/json
