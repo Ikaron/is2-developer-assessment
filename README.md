@@ -28,8 +28,10 @@ The **Data Exporter** app is a small RESTful API implemented in .NET 6. It manag
 
 Suggested improvements to **GetPolicy**:
 - It could potentially make sense to also include notes for the given policy, depending on the API design and who is calling this and when.
+
 Suggested improvements to **ReadPolicyAsync**:
 - Documentation comment had incorrect description
+
 Other notes:
 - Policies are not connected to a user/person. Doesn't make sense - Assume skipped for brevity.
 - Authorisation is missing. You should most likely only be able to access policies that apply to yourself. Similarly, you should probably 
@@ -40,4 +42,5 @@ Other notes:
 ## Test Queries
 
 The test queries are located inside DataExporter/DataExporterTestQueries.http
+
 This file can be opened in Visual Studio and has a list of a few requests to try out.
